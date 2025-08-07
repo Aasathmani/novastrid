@@ -203,6 +203,16 @@ class S {
   String get labelSteps {
     return Intl.message('Steps', name: 'labelSteps', desc: '', args: []);
   }
+
+  /// `Your Favorite`
+  String get labelYourFavorite {
+    return Intl.message(
+      'Your Favorite',
+      name: 'labelYourFavorite',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

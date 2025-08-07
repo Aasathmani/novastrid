@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:novastrid/generated/l10n.dart';
 import 'package:novastrid/src/application/bloc/food_description/food_description_bloc.dart';
+import 'package:novastrid/src/application/bloc/food_description/food_description_event.dart';
 import 'package:novastrid/src/application/bloc/food_description/food_description_state.dart';
 import 'package:novastrid/src/application/model/meal_model.dart';
 
@@ -40,6 +41,15 @@ class _FoodDescriptionPageState extends State<FoodDescriptionPage> {
             ),
             backgroundColor: Colors.black,
             iconTheme: IconThemeData(color: Colors.white),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  _bloc!.add(FavoriteMealEvent(state.meal?.id ?? ''));
+                },
+                icon: Icon(state.isFavorite ? Icons.star : Icons.star_border,color: Colors.orangeAccent,),
+                color: Colors.white,
+              ),
+            ],
           ),
           body: SingleChildScrollView(
             child: Column(

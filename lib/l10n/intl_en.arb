@@ -16,5 +16,6 @@
   "labelOnlyIncludeVegetarianMeals": "Only include Vegetarian meals",
   "labelYourFilter": "Your Filter",
   "labelIngredients": "Ingredients",
-  "labelSteps": "Steps"
+  "labelSteps": "Steps",
+  "labelYourFavorite": "Your Favorite"
 }

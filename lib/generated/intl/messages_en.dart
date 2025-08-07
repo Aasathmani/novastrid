@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "labelSteps": MessageLookupByLibrary.simpleMessage("Steps"),
     "labelVegFree": MessageLookupByLibrary.simpleMessage("Veg-free"),
     "labelVeganFree": MessageLookupByLibrary.simpleMessage("Vegan-free"),
+    "labelYourFavorite": MessageLookupByLibrary.simpleMessage("Your Favorite"),
     "labelYourFilter": MessageLookupByLibrary.simpleMessage("Your Filter"),
   };
 }
