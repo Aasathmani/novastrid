@@ -44,18 +44,21 @@ class FoodDescriptionBloc
       final List<String> favoriteMeals = prefs.getStringList('favoriteMeals') ?? [];
 
       bool isFavorite = false;
+      String? toastMessage;
 
       if (favoriteMeals.contains(mealId)) {
         favoriteMeals.remove(mealId);
         isFavorite = false;
+        toastMessage = 'Meal removed from favorites';
       } else {
         favoriteMeals.add(mealId);
         isFavorite = true;
+        toastMessage = 'Meal added to favorites';
       }
 
       await prefs.setStringList('favoriteMeals', favoriteMeals);
 
-      emit(state.copyWith(isFavorite: isFavorite));
+      emit(state.copyWith(isFavorite: isFavorite,toastMessage: toastMessage));
     } catch (e) {
       print('Error saving favorite meal: $e');
     }

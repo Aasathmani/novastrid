@@ -25,7 +25,16 @@ class _FoodDescriptionPageState extends State<FoodDescriptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FoodDescriptionBloc, FoodDescriptionState>(
+    return BlocConsumer<FoodDescriptionBloc, FoodDescriptionState>(
+      listener: (context,state) {
+        if (state.toastMessage != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.toastMessage!),
+            ),
+          );
+        }
+      },
       builder: (context, state) {
         final meal = state.meal;
 
