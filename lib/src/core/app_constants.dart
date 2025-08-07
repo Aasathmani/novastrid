@@ -3,6 +3,11 @@ class AppIcons {
   static const String kNovaLogo = 'assets/images/novastrid_logo.jpg';
 }
 
+class DrawerItem{
+  static const String meals = 'meals';
+  static const String filter = 'filter';
+}
+
 class Units {
   Units._();
 

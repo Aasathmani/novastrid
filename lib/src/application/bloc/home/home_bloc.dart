@@ -10,6 +10,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeInit>((event, emit) async {
       await _onInit(event, emit);
     });
+    on<SelectDrawerItemEvent>((event,emit){
+      emit(state.copyWith(selectDrawerItem: event.item));
+    });
     add(HomeInit());
   }
 

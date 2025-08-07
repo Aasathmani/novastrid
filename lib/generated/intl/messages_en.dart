@@ -24,5 +24,31 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "_locale": MessageLookupByLibrary.simpleMessage("en"),
     "btnOk": MessageLookupByLibrary.simpleMessage("Ok"),
+    "labelCategories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "labelCookingUp": MessageLookupByLibrary.simpleMessage("Cooking Up!"),
+    "labelFilter": MessageLookupByLibrary.simpleMessage("Filter"),
+    "labelGlutenFree": MessageLookupByLibrary.simpleMessage("Gluten-free"),
+    "labelIngredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
+    "labelLactoseFree": MessageLookupByLibrary.simpleMessage("Lactose-free"),
+    "labelMeals": MessageLookupByLibrary.simpleMessage("Meals"),
+    "labelNoMealsFound": MessageLookupByLibrary.simpleMessage(
+      "No meals found.",
+    ),
+    "labelOnlyIncludeGlutenFreeMeals": MessageLookupByLibrary.simpleMessage(
+      "Only include Gluten-free meals",
+    ),
+    "labelOnlyIncludeLactoseFreeMeals": MessageLookupByLibrary.simpleMessage(
+      "Only include Lactose-free meals",
+    ),
+    "labelOnlyIncludeVeganMeals": MessageLookupByLibrary.simpleMessage(
+      "Only include Vegan meals",
+    ),
+    "labelOnlyIncludeVegetarianMeals": MessageLookupByLibrary.simpleMessage(
+      "Only include Vegetarian meals",
+    ),
+    "labelSteps": MessageLookupByLibrary.simpleMessage("Steps"),
+    "labelVegFree": MessageLookupByLibrary.simpleMessage("Veg-free"),
+    "labelVeganFree": MessageLookupByLibrary.simpleMessage("Vegan-free"),
+    "labelYourFilter": MessageLookupByLibrary.simpleMessage("Your Filter"),
   };
 }

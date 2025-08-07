@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:novastrid/src/application/bloc/food_description/food_description_bloc.dart';
 import 'package:novastrid/src/presentation/filter/filter_page.dart';
+import 'package:novastrid/src/presentation/food_description/food_description_page.dart';
 import 'package:novastrid/src/presentation/home/home_page.dart';
 
 import '../application/bloc/core/bloc_provider.dart';
@@ -34,6 +36,14 @@ Route<dynamic>? generatedRoutes(RouteSettings settings) {
           settings.arguments! as FoodListArgument,
         );
       }
+    case FoodDescriptionPage.route:
+      if (settings.arguments != null &&
+          settings.arguments is FoodDescriptionArgument) {
+        return _getFoodDescriptionPage(
+          settings,
+          settings.arguments! as FoodDescriptionArgument,
+        );
+      }
   }
   return null;
 }
@@ -46,6 +56,19 @@ MaterialPageRoute _getFoodListPage(
     builder: (context) => BlocProvider<FoodListBloc>(
       create: (context) => provideFoodListBloc(argument),
       child: const FoodListPage(),
+    ),
+    settings: settings,
+  );
+}
+
+MaterialPageRoute _getFoodDescriptionPage(
+  RouteSettings settings,
+  FoodDescriptionArgument argument,
+) {
+  return MaterialPageRoute(
+    builder: (context) => BlocProvider<FoodDescriptionBloc>(
+      create: (context) => provideFoodDescriptionBloc(argument),
+      child: const FoodDescriptionPage(),
     ),
     settings: settings,
   );

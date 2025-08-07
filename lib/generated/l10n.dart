@@ -63,6 +63,146 @@ class S {
   String get btnOk {
     return Intl.message('Ok', name: 'btnOk', desc: '', args: []);
   }
+
+  /// `Categories`
+  String get labelCategories {
+    return Intl.message(
+      'Categories',
+      name: 'labelCategories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cooking Up!`
+  String get labelCookingUp {
+    return Intl.message(
+      'Cooking Up!',
+      name: 'labelCookingUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Meals`
+  String get labelMeals {
+    return Intl.message('Meals', name: 'labelMeals', desc: '', args: []);
+  }
+
+  /// `Filter`
+  String get labelFilter {
+    return Intl.message('Filter', name: 'labelFilter', desc: '', args: []);
+  }
+
+  /// `No meals found.`
+  String get labelNoMealsFound {
+    return Intl.message(
+      'No meals found.',
+      name: 'labelNoMealsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lactose-free`
+  String get labelLactoseFree {
+    return Intl.message(
+      'Lactose-free',
+      name: 'labelLactoseFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gluten-free`
+  String get labelGlutenFree {
+    return Intl.message(
+      'Gluten-free',
+      name: 'labelGlutenFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Veg-free`
+  String get labelVegFree {
+    return Intl.message('Veg-free', name: 'labelVegFree', desc: '', args: []);
+  }
+
+  /// `Vegan-free`
+  String get labelVeganFree {
+    return Intl.message(
+      'Vegan-free',
+      name: 'labelVeganFree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Only include Gluten-free meals`
+  String get labelOnlyIncludeGlutenFreeMeals {
+    return Intl.message(
+      'Only include Gluten-free meals',
+      name: 'labelOnlyIncludeGlutenFreeMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Only include Lactose-free meals`
+  String get labelOnlyIncludeLactoseFreeMeals {
+    return Intl.message(
+      'Only include Lactose-free meals',
+      name: 'labelOnlyIncludeLactoseFreeMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Only include Vegan meals`
+  String get labelOnlyIncludeVeganMeals {
+    return Intl.message(
+      'Only include Vegan meals',
+      name: 'labelOnlyIncludeVeganMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Only include Vegetarian meals`
+  String get labelOnlyIncludeVegetarianMeals {
+    return Intl.message(
+      'Only include Vegetarian meals',
+      name: 'labelOnlyIncludeVegetarianMeals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Filter`
+  String get labelYourFilter {
+    return Intl.message(
+      'Your Filter',
+      name: 'labelYourFilter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get labelIngredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'labelIngredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Steps`
+  String get labelSteps {
+    return Intl.message('Steps', name: 'labelSteps', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

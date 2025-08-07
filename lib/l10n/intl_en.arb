@@ -1,4 +1,20 @@
 {
   "_locale": "en",
-  "btnOk": "Ok"
+  "btnOk": "Ok",
+  "labelCategories": "Categories",
+  "labelCookingUp": "Cooking Up!",
+  "labelMeals": "Meals",
+  "labelFilter": "Filter",
+  "labelNoMealsFound": "No meals found.",
+  "labelLactoseFree": "Lactose-free",
+  "labelGlutenFree": "Gluten-free",
+  "labelVegFree": "Veg-free",
+  "labelVeganFree": "Vegan-free",
+  "labelOnlyIncludeGlutenFreeMeals": "Only include Gluten-free meals",
+  "labelOnlyIncludeLactoseFreeMeals": "Only include Lactose-free meals",
+  "labelOnlyIncludeVeganMeals": "Only include Vegan meals",
+  "labelOnlyIncludeVegetarianMeals": "Only include Vegetarian meals",
+  "labelYourFilter": "Your Filter",
+  "labelIngredients": "Ingredients",
+  "labelSteps": "Steps"
 }

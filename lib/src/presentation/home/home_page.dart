@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:novastrid/generated/l10n.dart';
 import 'package:novastrid/src/application/bloc/home/home_bloc.dart';
+import 'package:novastrid/src/application/bloc/home/home_event.dart';
 import 'package:novastrid/src/application/bloc/home/home_state.dart';
+import 'package:novastrid/src/application/model/category_model.dart';
 import 'package:novastrid/src/core/app_constants.dart';
 import 'package:novastrid/src/presentation/food_list/food_list_page.dart';
 
@@ -19,7 +22,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends BaseState<HomePage> {
   HomeBloc? _bloc;
-  String _selectedDrawerItem = 'meals';
 
   @override
   void didChangeDependencies() {
@@ -35,70 +37,19 @@ class _HomePageState extends BaseState<HomePage> {
           backgroundColor: Colors.black,
           appBar: AppBar(
             iconTheme: IconThemeData(color: Colors.white),
-            title: Text("Categories", style: TextStyle(color: Colors.white)),
+            title: Text(
+              S.current.labelCategories,
+              style: TextStyle(color: Colors.white),
+            ),
             backgroundColor: Colors.black,
           ),
           drawer: Drawer(
             backgroundColor: Colors.brown.shade900,
             child: Column(
               children: [
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.deepOrange, Colors.brown],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.restaurant_menu,
-                        size: 36,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 16),
-                      Text(
-                        "Cooking Up!",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  selected: _selectedDrawerItem == 'meals',
-                  selectedTileColor: Colors.brown.shade700,
-                  leading: Icon(Icons.restaurant, color: Colors.white),
-                  title: Text(
-                    "Meals",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  onTap: () {
-                    setState(() {
-                      _selectedDrawerItem = 'meals';
-                    });
-                    Navigator.of(context).pop(); // stay on current page
-                  },
-                ),
-                ListTile(
-                  selected: _selectedDrawerItem == 'filter',
-                  selectedTileColor: Colors.brown.shade700,
-                  leading: Icon(Icons.settings, color: Colors.white),
-                  title: Text(
-                    "Filter",
-                    style: TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  onTap: () {
-                    setState(() {
-                      _selectedDrawerItem = 'filter';
-                    });
-                    Navigator.pushNamed(context, FilterPage.route);
-                  },
-                ),
+                _getDrawerHeader(context, state),
+                _getMealsDrawerItem(context, state),
+                _getFilterDrawerItem(context, state),
               ],
             ),
           ),
@@ -122,34 +73,12 @@ class _HomePageState extends BaseState<HomePage> {
                             context,
                             FoodListPage.route,
                             arguments: FoodListArgument(
-                                title: category.title,
-                                category: category.id),
+                              title: category?.title,
+                              category: category?.id,
+                            ),
                           );
                         },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                getColorFromString(category!.color),
-                                Colors.black,
-                              ],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(Units.kMPadding),
-                            child: Text(
-                              category.title,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
+                        child: _getGridItem(context, category),
                       );
                     },
                   )
@@ -157,6 +86,89 @@ class _HomePageState extends BaseState<HomePage> {
           ),
         );
       },
+    );
+  }
+
+  Widget _getDrawerHeader(BuildContext context, HomeState state) {
+    return DrawerHeader(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.deepOrange, Colors.brown],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.restaurant_menu, size: 36, color: Colors.white),
+          SizedBox(width: 16),
+          Text(
+            S.current.labelCookingUp,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _getMealsDrawerItem(BuildContext context, HomeState state) {
+    return ListTile(
+      selected: state.selectDrawerItem == DrawerItem.meals,
+      selectedTileColor: Colors.brown.shade700,
+      leading: Icon(Icons.restaurant, color: Colors.white),
+      title: Text(
+        S.current.labelMeals,
+        style: TextStyle(color: Colors.white, fontSize: 18),
+      ),
+      onTap: () {
+        _bloc!.add(SelectDrawerItemEvent(DrawerItem.meals));
+        Navigator.of(context).pop(); // stay on current page
+      },
+    );
+  }
+
+  Widget _getFilterDrawerItem(BuildContext context, HomeState state) {
+    return ListTile(
+      selected: state.selectDrawerItem == DrawerItem.filter,
+      selectedTileColor: Colors.brown.shade700,
+      leading: Icon(Icons.settings, color: Colors.white),
+      title: Text(
+        S.current.labelFilter,
+        style: TextStyle(color: Colors.white, fontSize: 18),
+      ),
+      onTap: () {
+        _bloc!.add(SelectDrawerItemEvent(DrawerItem.filter));
+        Navigator.pop(context);
+        Navigator.pushNamed(context, FilterPage.route);
+      },
+    );
+  }
+
+  Widget _getGridItem(BuildContext context, CategoryModel? category) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [getColorFromString(category!.color), Colors.black],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(Units.kMPadding),
+        child: Text(
+          category.title,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }

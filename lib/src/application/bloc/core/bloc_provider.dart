@@ -1,4 +1,5 @@
 import 'package:novastrid/src/application/bloc/filter/filter_bloc.dart';
+import 'package:novastrid/src/application/bloc/food_description/food_description_bloc.dart';
 import 'package:novastrid/src/application/bloc/home/home_bloc.dart';
 import 'package:novastrid/src/application/bloc/splash/splash_bloc.dart';
 
@@ -22,4 +23,11 @@ FoodListBloc provideFoodListBloc(FoodListArgument argument) {
       category: argument.category,
       title: argument.title,
       homeRepository: provideHomeRepository(),);
+}
+
+FoodDescriptionBloc provideFoodDescriptionBloc(FoodDescriptionArgument argument) {
+  return FoodDescriptionBloc(
+    mealId: argument.mealId,
+    homeRepository: provideHomeRepository()
+  );
 }
