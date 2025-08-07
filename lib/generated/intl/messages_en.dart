@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOk": MessageLookupByLibrary.simpleMessage("Ok"),
     "labelCategories": MessageLookupByLibrary.simpleMessage("Categories"),
     "labelCookingUp": MessageLookupByLibrary.simpleMessage("Cooking Up!"),
+    "labelFavorite": MessageLookupByLibrary.simpleMessage("Favorite"),
     "labelFilter": MessageLookupByLibrary.simpleMessage("Filter"),
     "labelGlutenFree": MessageLookupByLibrary.simpleMessage("Gluten-free"),
     "labelIngredients": MessageLookupByLibrary.simpleMessage("Ingredients"),

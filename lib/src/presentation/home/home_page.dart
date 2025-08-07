@@ -56,14 +56,14 @@ class _HomePageState extends BaseState<HomePage> {
             onTap: (index) {
               _bloc!.add(ChangeBottomBar(index));
             },
-            items: const [
+            items:  [
               BottomNavigationBarItem(
                 icon: Icon(Icons.category),
-                label: 'Categories',
+                label: S.current.labelCategories,
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.star),
-                label: 'Favorites',
+                label: S.current.labelFavorite,
               ),
             ],
           ),

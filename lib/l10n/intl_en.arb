@@ -17,5 +17,6 @@
   "labelYourFilter": "Your Filter",
   "labelIngredients": "Ingredients",
   "labelSteps": "Steps",
-  "labelYourFavorite": "Your Favorite"
+  "labelYourFavorite": "Your Favorite",
+  "labelFavorite": "Favorite"
 }
